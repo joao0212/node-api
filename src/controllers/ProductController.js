@@ -6,6 +6,7 @@ const Product = mongoose.model('Product');
 module.exports = {
     async listar(req, res) {
         const { page = 1 } = req.query;
+        console.log(req.query);
         const products = await Product.paginate({}, { page: page, limit: 10 });
 
         return res.json(products);
